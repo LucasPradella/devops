@@ -17,10 +17,17 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami           = "ami-017fecd1353bcc96e"
   instance_type = "t2.micro"
-
   key_name = "iac-oregon"
 
+  # user_data = <<-EOF
+  #                 #!/bin/bash
+  #                 cd /home/ubuntu
+  #                 echo "<h1>Vai Corinthians</h1>" > index.html
+  #                 nohup busybox httpd -f -p 8080 & 
+  #               EOF
+
   tags = {
-    Name = "primeira-instancia"
+    Name = "teste-aws"
   }
+
 }
